@@ -1,5 +1,5 @@
 #include "battery_check.h"
-#include "language.h"
+#include "language_support.h"
 
 // Check if temperature is out of range
 int isTemperatureOutOfRange(float temperature) {
