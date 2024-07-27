@@ -1,20 +1,17 @@
-// language_support.h
+#ifndef LANGUAGE_H
+#define LANGUAGE_H
 
-#ifndef LANGUAGE_SUPPORT_H
-#define LANGUAGE_SUPPORT_H
-
-// Define languages
+// Enum for supported languages
 typedef enum {
-    LANG_ENGLISH,
-    LANG_GERMAN,
-    // Add more languages here in the future
-    LANG_COUNT
+    LANGUAGE_ENGLISH,
+    LANGUAGE_GERMAN,
+    // Add more languages here
+    LANGUAGE_COUNT // This should always be the last item
 } Language;
 
-// Global variable to hold the current language
-extern Language currentLanguage;
+// Function prototypes
+const char* getTemperatureOutOfRangeMessage(Language lang);
+const char* getSocOutOfRangeMessage(Language lang);
+const char* getChargeRateOutOfRangeMessage(Language lang);
 
-// Function to print messages based on index
-void printLocalizedMessage(int messageIndex);
-
-#endif // LANGUAGE_SUPPORT_H
+#endif // LANGUAGE_H
