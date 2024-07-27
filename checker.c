@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include "battery_check.h"
+#include "language_support.h"
 
 int main() {
     // Test with English messages
