@@ -1,5 +1,6 @@
 #ifndef LANGUAGE_H
 #define LANGUAGE_H
+#include <stdio.h>
 
 // Enum for supported languages
 typedef enum {
