@@ -10,7 +10,7 @@ const char* messages[LANGUAGE_COUNT][3] = {
     [LANGUAGE_GERMAN] = {
         "Temperatur außerhalb des Bereichs!",
         "Ladezustand außerhalb des Bereichs!",
-        "Ladegeschwindigkeit außerhalb des Bereichs!"
+        "Laderate außerhalb des zulässigen Bereichs!"
     }
     // Add more languages here
 };
