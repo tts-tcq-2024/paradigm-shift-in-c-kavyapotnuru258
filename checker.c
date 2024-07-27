@@ -1,18 +1,15 @@
-#include "battery_checks.h"
-#include "language_support.h"
+#include <stdio.h>
 #include <assert.h>
+#include "battery_check.h"
 
 int main() {
-    // Set language to German
-    currentLanguage = LANG_GERMAN;
+    // Test with English messages
+    assert(batteryIsOk(25, 70, 0.7, LANGUAGE_ENGLISH));
+    assert(!batteryIsOk(50, 85, 0, LANGUAGE_ENGLISH));
 
-    // Test cases
-    assert(!validateBatteryStatus(50, 85, 0.9)); // Should print the German message
-
-    // Switch to English and test again
-    currentLanguage = LANG_ENGLISH;
-    assert(validateBatteryStatus(25, 70, 0.7)); // Should pass without printing messages
-    assert(!validateBatteryStatus(50, 85, 0)); // Should print the English message
+    // Test with German messages
+    assert(batteryIsOk(25, 70, 0.7, LANGUAGE_GERMAN));
+    assert(!batteryIsOk(50, 85, 0, LANGUAGE_GERMAN));
 
     return 0;
 }
