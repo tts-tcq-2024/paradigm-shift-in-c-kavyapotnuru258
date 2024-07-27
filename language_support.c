@@ -1,4 +1,4 @@
-#include "language.h"
+#include "language_support.h"
 
 // Message arrays for each language
 const char* messages[LANGUAGE_COUNT][3] = {
