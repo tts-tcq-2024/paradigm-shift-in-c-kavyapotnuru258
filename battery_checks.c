@@ -1,35 +1,34 @@
-// battery_checks.c
+#include "battery_check.h"
+#include "language.h"
 
-#include "battery_checks.h"
-#include "language_support.h"
-#include <stdio.h>
-
-// Check functions for battery parameters
-int checkTemperature(float temperature) {
-    return (temperature >= 0 && temperature <= 45);
+// Check if temperature is out of range
+int isTemperatureOutOfRange(float temperature) {
+    return (temperature < 0 || temperature > 45);
 }
 
-int checkSoc(float soc) {
-    return (soc >= 20 && soc <= 80);
+// Check if state of charge is out of range
+int isSocOutOfRange(float soc) {
+    return (soc < 20 || soc > 80);
 }
 
-int checkChargeRate(float chargeRate) {
-    return (chargeRate <= 0.8);
+// Check if charge rate is out of range
+int isChargeRateOutOfRange(float chargeRate) {
+    return (chargeRate > 0.8);
 }
 
-int validateBatteryStatus(float temperature, float soc, float chargeRate) {
-    BatteryCheck checks[] = {
-        {checkTemperature, temperature, 0}, // 0: Index for temperature message
-        {checkSoc, soc, 1},                  // 1: Index for SOC message
-        {checkChargeRate, chargeRate, 2}    // 2: Index for charge rate message
-    };
-
-    for (int i = 0; i < sizeof(checks) / sizeof(checks[0]); ++i) {
-        if (!checks[i].validate(checks[i].value)) {
-            printLocalizedMessage(checks[i].messageIndex);
-            return 0;
-        }
+// Check if battery is okay and print messages in selected language
+int batteryIsOk(float temperature, float soc, float chargeRate, int lang) {
+    if (isTemperatureOutOfRange(temperature)) {
+        printf("%s\n", getTemperatureOutOfRangeMessage(lang));
+        return 0;
     }
-
+    if (isSocOutOfRange(soc)) {
+        printf("%s\n", getSocOutOfRangeMessage(lang));
+        return 0;
+    }
+    if (isChargeRateOutOfRange(chargeRate)) {
+        printf("%s\n", getChargeRateOutOfRangeMessage(lang));
+        return 0;
+    }
     return 1;
 }
