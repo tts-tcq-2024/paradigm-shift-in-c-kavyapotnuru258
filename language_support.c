@@ -1,27 +1,29 @@
-// language_support.c
+#include "language.h"
 
-#include "language_support.h"
-#include <stdio.h>
-
-// Messages for each language
-const char* localizedMessages[LANG_COUNT][3] = {
-    [LANG_ENGLISH] = {
-        "Temperature out of range!\n",
-        "State of Charge out of range!\n",
-        "Charge Rate out of range!\n"
+// Message arrays for each language
+const char* messages[LANGUAGE_COUNT][3] = {
+    [LANGUAGE_ENGLISH] = {
+        "Temperature out of range!",
+        "State of Charge out of range!",
+        "Charge Rate out of range!"
     },
-    [LANG_GERMAN] = {
-        "Temperatur außerhalb des Bereichs!\n",
-        "Ladezustand außerhalb des Bereichs!\n",
-        "Ladegeschwindigkeit außerhalb des Bereichs!\n"
+    [LANGUAGE_GERMAN] = {
+        "Temperatur außerhalb des Bereichs!",
+        "Ladezustand außerhalb des Bereichs!",
+        "Ladegeschwindigkeit außerhalb des Bereichs!"
     }
     // Add more languages here
 };
 
-Language currentLanguage = LANG_ENGLISH;
+// Message retrieval functions
+const char* getTemperatureOutOfRangeMessage(Language lang) {
+    return messages[lang][0];
+}
 
-void printLocalizedMessage(int messageIndex) {
-    if (messageIndex >= 0 && messageIndex < 3) {
-        printf("%s", localizedMessages[currentLanguage][messageIndex]);
-    }
+const char* getSocOutOfRangeMessage(Language lang) {
+    return messages[lang][1];
+}
+
+const char* getChargeRateOutOfRangeMessage(Language lang) {
+    return messages[lang][2];
 }
