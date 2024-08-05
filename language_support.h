@@ -4,10 +4,10 @@
 
 // Enum for supported languages
 typedef enum {
-    LANGUAGE_ENGLISH,
-    LANGUAGE_GERMAN,
+            ENGLISH,
+            GERMAN,
     // Add more languages here
-    LANGUAGE_COUNT // This should always be the last item
+             COUNT // This should always be the last item
 } Language;
 
 // Function prototypes
