@@ -1,13 +1,13 @@
 #include "language_support.h"
 
 // Message arrays for each language
-const char* messages[LANGUAGE_COUNT][3] = {
-    [LANGUAGE_ENGLISH] = {
+const char* messages[COUNT][3] = {
+    [ENGLISH] = {
         "Temperature out of range!",
         "State of Charge out of range!",
         "Charge Rate out of range!"
     },
-    [LANGUAGE_GERMAN] = {
+    [GERMAN] = {
         "Temperatur außerhalb des Bereichs!",
         "Ladezustand außerhalb des Bereichs!",
         "Laderate außerhalb des zulässigen Bereichs!"
