@@ -1,5 +1,8 @@
 #include "language_support.h"
 
+// Global variable for storing the preferred language
+static Language currentLanguage = ENGLISH;
+
 // Function to set the preferred language
 void setPreferredLanguage(Language lang) {
     currentLanguage = lang;
