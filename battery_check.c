@@ -1,5 +1,5 @@
 #include "battery_check.h"
-#include "language_support.h"
+#include "localization_utils.h"
 
 int isTemperatureOk(float temperature) {
     if (temperature < 0 || temperature > 45) {
