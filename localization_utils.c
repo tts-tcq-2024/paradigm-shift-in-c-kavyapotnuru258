@@ -1,4 +1,4 @@
-#include "language_support.h"
+#include "localization_utils.h"
 
 // Global variable for storing the preferred language
 static Language currentLanguage = ENGLISH;
